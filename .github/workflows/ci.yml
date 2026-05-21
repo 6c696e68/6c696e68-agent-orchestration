@@ -25,7 +25,7 @@ jobs:
         run: uv sync
       - name: Verify generated manifests are committed
         run: |
-          uv lock --check || {
+          make check-manifests || {
             echo "::error::Generated manifests are stale. Run 'uv lock' and commit the updated uv.lock."
             exit 1
           }

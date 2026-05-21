@@ -1,7 +1,10 @@
-.PHONY: install test lint clean build run
+.PHONY: install test lint clean build run check-manifests
 
 install:
 	uv sync
+
+check-manifests:
+	uv lock --check
 
 test:
 	pytest --cov=src tests/ -v
